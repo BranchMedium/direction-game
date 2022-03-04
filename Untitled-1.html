@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Tobi Olusesi">
+        <meta name="description" content="Compass direction">
+        <style>
+            img.rot {
+                transform: rotate(-45deg)
+            }
+            table, tr, td {
+                border-color: none;
+            }
+            td 
+            {
+                border-spacing: 5px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Compass Game</h1>
+        <p>The direction letters on the "compass" are scrambled. Press the arrows to properly positon the direction letters</p>
+        <table>
+            <tr><td><img class="rot" src="arrow.jpg" alt="arrow"></td><td id="in"></td></tr><br>
+            <tr><td id="inner"></td><td><img src="arrow.jpg" alt="arrow"></td><td id="out"></td></tr><br>
+            <tr><td></td><td id="outter"></td><td><img class="rot" src="arrow.jpg" alt="arrow"></td></tr>
+        </table>
+        <p id="bottom">
+            To restart the game, press <em>Restart</em>, enter N, S, E and W in any order in the
+            boxes below, and then press <em>Update</em>.
+        </p><br>
+        <input type="button" id="rest" value="Restart" onclick="compre()"><br><br>
+        <label for="top">Top:&nbsp;</label>
+        <input type="text" id="top" maxlength="1" size="3">
+        <label for="left">Left:&nbsp;</label>
+        <input type="text" id="left" maxlength="1" size="3">
+        <label for="right">Right:&nbsp;</label>
+        <input type="text" id="right" maxlength="1" size="3">
+        <label for="down">Bottom:&nbsp;</label>
+        <input type="text" id="down" maxlength="1" size="3"><br><br>
+        <input type="button" value="Update" id="upda" onclick="compassup()">
+        <script>
+            var top // input area for top 
+            var left // input area for left
+            var right // input area for right
+            var bottom // input area for bottom
+            var ptop // output for top
+            var pleft // output for left
+            var pright // output for right
+            var pbottom // output for bottom
+            // function declaration begins for compass
+            var compassup = function(top, left, right, bottom) {
+               top = document.getElementById("top").value;
+                var to = document.getElementById("in").innerHTML = top;
+                left = document.getElementById("left").value;
+                var lef = document.getElementById("inner").innerHTML = left;
+                right = document.getElementById("right").value;
+                var rig = document.getElementById("out").innerHTML = right;
+                bottom = document.getElementById("down").value;
+                var bot = document.getElementById("outter").innerHTML = bottom;
+                document.getElementById("upda").disabled = true;
+                document.getElementById("top").disabled = true;
+                document.getElementById("left").disabled = true;
+                document.getElementById("right").disabled = true;
+                document.getElementById("down").disabled = true;
+            }
+            //*******************************************************************
+            var compre = function(topp, leftt, rightt, downn) {
+                document.getElementById("upda").disabled = false;
+                document.getElementById("top").disabled = false;
+                document.getElementById("left").disabled = false;
+                document.getElementById("right").disabled = false;
+                document.getElementById("down").disabled = false;
+                var topp = document.getElementById("top").value = "";
+                var leftt = document.getElementById("left").value = "";
+                var rightt = document.getElementById("right").value = "";
+                var downn = document.getElementById("down").value= "";
+                
+            }
+        </script>
+    </body>
+</html>
